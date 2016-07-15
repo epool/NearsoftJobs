@@ -30,6 +30,9 @@ class JobDetailActivity : AppCompatActivity() {
         }
     }
 
+    private val jobFromIntent: Job
+        get() = intent.getParcelableExtra<Job>(ARG_JOB)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_detail)
@@ -53,9 +56,6 @@ class JobDetailActivity : AppCompatActivity() {
     private fun initView() {
         markdownTextView.movementMethod = LinkMovementMethod.getInstance()
     }
-
-    private val jobFromIntent: Job
-        get() = intent.getParcelableExtra<Job>(ARG_JOB)
 
     private fun showProgressBar(show: Boolean) {
         progressBar.visibility = if (show) View.VISIBLE else View.GONE
