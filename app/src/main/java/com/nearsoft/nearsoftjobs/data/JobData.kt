@@ -11,54 +11,34 @@ object JobData {
     val JOBS: MutableList<Job> = ArrayList()
 
     init {
-        val androidEngineer = Job()
-        androidEngineer.name = "Android Engineer"
-        androidEngineer.pageId = "android"
+        val androidEngineer = Job(name = "Android Engineer", pageId = "android")
         JOBS.add(androidEngineer)
 
-        val angularJsEngineer = Job()
-        angularJsEngineer.name = "AngularJS Engineer"
-        angularJsEngineer.pageId = "angular"
+        val angularJsEngineer = Job("AngularJS Engineer", "angular")
         JOBS.add(angularJsEngineer)
 
-        val fullStackFrontEndEngineer = Job()
-        fullStackFrontEndEngineer.name = "Full Stack Front End Engineer"
-        fullStackFrontEndEngineer.pageId = "front-end-full-stack"
+        val fullStackFrontEndEngineer = Job("Full Stack Front End Engineer", "front-end-full-stack")
         JOBS.add(fullStackFrontEndEngineer)
 
-        val iOsEngineer = Job()
-        iOsEngineer.name = "iOS Engineer"
-        iOsEngineer.pageId = "ios"
+        val iOsEngineer = Job("iOS Engineer", "ios")
         JOBS.add(iOsEngineer)
 
-        val fullStackJavaEngineer = Job()
-        fullStackJavaEngineer.name = "Full Stack Java Engineer"
-        fullStackJavaEngineer.pageId = "java-full-stack"
+        val fullStackJavaEngineer = Job("Full Stack Java Engineer", "java-full-stack")
         JOBS.add(fullStackJavaEngineer)
 
-        val javaEngineer = Job()
-        javaEngineer.name = "Java Engineer"
-        javaEngineer.pageId = "java"
+        val javaEngineer = Job("Java Engineer", "java")
         JOBS.add(javaEngineer)
 
-        val nodeJsEngineer = Job()
-        nodeJsEngineer.name = "Node.js Engineer"
-        nodeJsEngineer.pageId = "node"
+        val nodeJsEngineer = Job("Node.js Engineer", "node")
         JOBS.add(nodeJsEngineer)
 
-        val qAEngineer = Job()
-        qAEngineer.name = "QA Engineer"
-        qAEngineer.pageId = "qa"
+        val qAEngineer = Job("QA Engineer", "qa")
         JOBS.add(qAEngineer)
 
-        val qAAutomationEngineer = Job()
-        qAAutomationEngineer.name = "QA Automation"
-        qAAutomationEngineer.pageId = "qa-automation"
+        val qAAutomationEngineer = Job("QA Automation", "qa-automation")
         JOBS.add(qAAutomationEngineer)
 
-        val rubyOnRailsEngineer = Job()
-        rubyOnRailsEngineer.name = "Ruby on Rails Engineer"
-        rubyOnRailsEngineer.pageId = "ror"
+        val rubyOnRailsEngineer = Job("Ruby on Rails Engineer", "ror")
         JOBS.add(rubyOnRailsEngineer)
     }
 
