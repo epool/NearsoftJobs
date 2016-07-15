@@ -7,12 +7,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.TextView
 import com.nearsoft.nearsoftjobs.R
 import com.nearsoft.nearsoftjobs.model.Job
 import com.nearsoft.nearsoftjobs.util.getCharSequenceFromMarkdown
 import com.nearsoft.nearsoftjobs.util.loadRemoteJobPage
+import kotlinx.android.synthetic.main.activity_job_detail.*
 
 /**
  * Created by epool on 7/14/16.
@@ -30,32 +29,29 @@ class JobDetailActivity : AppCompatActivity() {
         }
     }
 
-    private val mMarkdownTextView: TextView by lazy { findViewById(R.id.markdown_view) as TextView }
-    private val mProgressBar: ProgressBar by lazy { findViewById(R.id.progressBar) as ProgressBar }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_detail)
 
-        initViews()
+        initView()
 
         val job = jobFromIntent
         JobPageLoader().execute(job)
     }
 
-    private fun initViews() {
-        mMarkdownTextView.movementMethod = LinkMovementMethod.getInstance()
+    private fun initView() {
+        markdownTextView.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private val jobFromIntent: Job
         get() = intent.getParcelableExtra<Job>(ARG_JOB)
 
     private fun showProgressBar(show: Boolean) {
-        mProgressBar.visibility = if (show) View.VISIBLE else View.GONE
+        progressBar.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     private fun showMarkdownContent(markdown: String) {
-        mMarkdownTextView.text = getCharSequenceFromMarkdown(markdown)
+        markdownTextView.text = getCharSequenceFromMarkdown(markdown)
     }
 
     private inner class JobPageLoader : AsyncTask<Job, Void, String>() {
