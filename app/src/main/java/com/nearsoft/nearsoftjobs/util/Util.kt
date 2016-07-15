@@ -16,7 +16,7 @@ import java.io.IOException
 private val RETROFIT = Retrofit.Builder().baseUrl("https://raw.githubusercontent.com/Nearsoft/jobs/master/").build()
 private val JOB_SERVICE = RETROFIT.create(JobService::class.java)
 
-fun Activity.loadRemoteJobPage(jobPage: String): String {
+fun loadRemoteJobPage(jobPage: String): String {
     val call = JOB_SERVICE.getUser(jobPage)
     try {
         // Execute synchronously to show the use of an AsyncTask
