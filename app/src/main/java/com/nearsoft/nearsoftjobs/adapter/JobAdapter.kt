@@ -12,7 +12,7 @@ import com.nearsoft.nearsoftjobs.model.Job
 /**
  * Created by epool on 7/14/16.
  */
-class JobAdapter(private val mJobs: List<Job>, private val mOnJobClickListener: JobAdapter.OnJobClickListener) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
+class JobAdapter(private val mJobs: List<Job>, private val mOnJobClickListener: (job: Job) -> Unit) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_job, parent, false)
@@ -26,10 +26,6 @@ class JobAdapter(private val mJobs: List<Job>, private val mOnJobClickListener: 
 
     override fun getItemCount(): Int {
         return mJobs.size
-    }
-
-    interface OnJobClickListener {
-        fun onJobClicked(job: Job)
     }
 
     inner class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
@@ -46,7 +42,7 @@ class JobAdapter(private val mJobs: List<Job>, private val mOnJobClickListener: 
         }
 
         override fun onClick(view: View) {
-            mOnJobClickListener.onJobClicked(mJobs[adapterPosition])
+            mOnJobClickListener(mJobs[adapterPosition])
         }
 
     }
