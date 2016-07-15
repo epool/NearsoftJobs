@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         initView()
 
-        toast("Yay! This is !@#$&* delicious! ='D")
+        toast("Yay! This is F!@#$&*ing delicious! ='D")
     }
 
     private fun initView() {
