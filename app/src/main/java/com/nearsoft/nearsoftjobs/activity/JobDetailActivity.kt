@@ -2,7 +2,6 @@ package com.nearsoft.nearsoftjobs.activity
 
 import android.content.Context
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
@@ -12,6 +11,8 @@ import com.nearsoft.nearsoftjobs.model.Job
 import com.nearsoft.nearsoftjobs.util.getCharSequenceFromMarkdown
 import com.nearsoft.nearsoftjobs.util.loadRemoteJobPage
 import kotlinx.android.synthetic.main.activity_job_detail.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 /**
  * Created by epool on 7/14/16.
@@ -35,8 +36,18 @@ class JobDetailActivity : AppCompatActivity() {
 
         initView()
 
-        val job = jobFromIntent
-        JobPageLoader().execute(job)
+        requestJobDetail()
+    }
+
+    private fun requestJobDetail() {
+        showProgressBar(true)
+        doAsync {
+            val markdownString = loadRemoteJobPage(jobFromIntent.pageId)
+            uiThread {
+                showMarkdownContent(markdownString)
+                showProgressBar(false)
+            }
+        }
     }
 
     private fun initView() {
@@ -52,24 +63,6 @@ class JobDetailActivity : AppCompatActivity() {
 
     private fun showMarkdownContent(markdown: String) {
         markdownTextView.text = getCharSequenceFromMarkdown(markdown)
-    }
-
-    private inner class JobPageLoader : AsyncTask<Job, Void, String>() {
-
-        override fun onPreExecute() {
-            showProgressBar(true)
-        }
-
-        override fun doInBackground(vararg jobs: Job): String {
-            val job = jobs[0]
-            return loadRemoteJobPage(job.pageId)
-        }
-
-        override fun onPostExecute(markdownString: String) {
-            showMarkdownContent(markdownString)
-            showProgressBar(false)
-        }
-
     }
 
 }
