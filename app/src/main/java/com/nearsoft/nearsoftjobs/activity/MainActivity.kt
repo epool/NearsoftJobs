@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.nearsoft.nearsoftjobs.R
 import com.nearsoft.nearsoftjobs.adapter.JobAdapter
 import com.nearsoft.nearsoftjobs.data.JobData
+import com.nearsoft.nearsoftjobs.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initView()
+
+        toast("Yay! This is !@#$&* delicious! ='D")
     }
 
     private fun initView() {

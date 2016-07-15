@@ -2,6 +2,7 @@ package com.nearsoft.nearsoftjobs.util
 
 import `in`.uncod.android.bypass.Bypass
 import android.app.Activity
+import android.widget.Toast
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -26,6 +27,10 @@ fun loadRemoteJobPage(jobPage: String): String {
         e.printStackTrace()
         return e.message!!
     }
+}
+
+fun Activity.toast(message: String, duration: Int = Toast.LENGTH_LONG): Unit {
+    Toast.makeText(this, message, duration).show()
 }
 
 fun Activity.getCharSequenceFromMarkdown(markdown: String): CharSequence {
