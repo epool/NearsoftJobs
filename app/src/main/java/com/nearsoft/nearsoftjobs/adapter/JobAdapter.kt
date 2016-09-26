@@ -28,21 +28,19 @@ class JobAdapter(private val mJobs: List<Job>, private val mOnJobClickListener: 
         return mJobs.size
     }
 
-    inner class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val mJobNameTextView: TextView
 
         init {
-            itemView.setOnClickListener(this)
+            itemView.setOnClickListener {
+                mOnJobClickListener(mJobs[adapterPosition])
+            }
             mJobNameTextView = itemView.findViewById(R.id.jobNameTextView) as TextView
         }
 
         fun bindView(job: Job) {
             mJobNameTextView.text = job.name
-        }
-
-        override fun onClick(view: View) {
-            mOnJobClickListener(mJobs[adapterPosition])
         }
 
     }
