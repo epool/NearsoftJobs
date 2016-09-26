@@ -10,58 +10,56 @@ import java.util.List;
  */
 public class JobData {
 
-    public static final List<Job> JOBS = new ArrayList<>();
-
-    static {
+    public static final List<Job> JOBS = new ArrayList<Job>() {{
         Job androidEngineer = new Job();
         androidEngineer.setName("Android Engineer");
         androidEngineer.setPageId("android");
-        JOBS.add(androidEngineer);
+        add(androidEngineer);
 
         Job angularJsEngineer = new Job();
         angularJsEngineer.setName("AngularJS Engineer");
         angularJsEngineer.setPageId("angular");
-        JOBS.add(angularJsEngineer);
+        add(angularJsEngineer);
 
         Job fullStackFrontEndEngineer = new Job();
         fullStackFrontEndEngineer.setName("Full Stack Front End Engineer");
         fullStackFrontEndEngineer.setPageId("front-end-full-stack");
-        JOBS.add(fullStackFrontEndEngineer);
+        add(fullStackFrontEndEngineer);
 
         Job iOsEngineer = new Job();
         iOsEngineer.setName("iOS Engineer");
         iOsEngineer.setPageId("ios");
-        JOBS.add(iOsEngineer);
+        add(iOsEngineer);
 
         Job fullStackJavaEngineer = new Job();
         fullStackJavaEngineer.setName("Full Stack Java Engineer");
         fullStackJavaEngineer.setPageId("java-full-stack");
-        JOBS.add(fullStackJavaEngineer);
+        add(fullStackJavaEngineer);
 
         Job javaEngineer = new Job();
         javaEngineer.setName("Java Engineer");
         javaEngineer.setPageId("java");
-        JOBS.add(javaEngineer);
+        add(javaEngineer);
 
         Job nodeJsEngineer = new Job();
         nodeJsEngineer.setName("Node.js Engineer");
         nodeJsEngineer.setPageId("node");
-        JOBS.add(nodeJsEngineer);
+        add(nodeJsEngineer);
 
         Job qAEngineer = new Job();
         qAEngineer.setName("QA Engineer");
         qAEngineer.setPageId("qa");
-        JOBS.add(qAEngineer);
+        add(qAEngineer);
 
         Job qAAutomationEngineer = new Job();
         qAAutomationEngineer.setName("QA Automation");
         qAAutomationEngineer.setPageId("qa-automation");
-        JOBS.add(qAAutomationEngineer);
+        add(qAAutomationEngineer);
 
         Job rubyOnRailsEngineer = new Job();
         rubyOnRailsEngineer.setName("Ruby on Rails Engineer");
         rubyOnRailsEngineer.setPageId("ror");
-        JOBS.add(rubyOnRailsEngineer);
-    }
+        add(rubyOnRailsEngineer);
+    }};
 
 }
